@@ -56,7 +56,7 @@ export class AddNewCuponeComponent implements OnInit {
     if(this.type_segment == 1){
       let INDEX = this.products_selected.findIndex(item => item._id == this.product);
       if(INDEX != -1){
-        this.toaster.open(NoticyAlertComponent,{text:`danger-'UPPS ! EL PRODUCTO YA EXISTE, SELECCIONA OTRO'`});
+        this.toaster.open(NoticyAlertComponent,{text:`danger-'UPPS! EL PRODUCTO YA EXISTE, SELECCIONA OTRO'`});
         return;
       }else{
         let PRODUCT_S = this.products.find(item => item._id == this.product);
@@ -66,7 +66,7 @@ export class AddNewCuponeComponent implements OnInit {
     }else{
       let INDEX = this.categories_selected.findIndex(item => item._id == this.categorie);
       if(INDEX != -1){
-        this.toaster.open(NoticyAlertComponent,{text:`danger-'UPPS ! LA CATEGORIA YA EXISTE, SELECCIONA OTRO'`});
+        this.toaster.open(NoticyAlertComponent,{text:`danger-'UPPS! LA CATEGORIA YA EXISTE, SELECCIONA OTRA'`});
         return;
       }else{
         let CATEGORIA_S = this.categories.find(item => item._id == this.categorie);
@@ -90,24 +90,24 @@ export class AddNewCuponeComponent implements OnInit {
   save(){
 
     if(!this.code || !this.discount){
-      this.toaster.open(NoticyAlertComponent,{text:`danger-'UPPS ! ALGUNOS CAMPOS ESTAN VACIOS'`});
+      this.toaster.open(NoticyAlertComponent,{text:`danger-'UPPS! ALGUNOS CAMPOS ESTAN VACIOS'`});
       return;
     }
     if(this.type_count == 2){
       if(this.num_use == 0){
-        this.toaster.open(NoticyAlertComponent,{text:`danger-'UPPS ! TIENES QUE DIGITAR EL NUMERO DE USOS'`});
+        this.toaster.open(NoticyAlertComponent,{text:`danger-'UPPS! TIENES QUE DIGITAR EL NUMERO DE USOS'`});
         return;
       }
     }
     if(this.type_segment == 1){
       if(this.products_selected.length == 0){
-        this.toaster.open(NoticyAlertComponent,{text:`danger-'UPPS ! TIENES QUE SELECCIONAR UN PRODUCTO AL MENOS'`});
+        this.toaster.open(NoticyAlertComponent,{text:`danger-'UPPS! TIENES QUE SELECCIONAR AL MENOS UN PRODUCTO '`});
         return;
       }
     }
     if(this.type_segment == 2){
       if(this.categories_selected.length == 0){
-        this.toaster.open(NoticyAlertComponent,{text:`danger-'UPPS ! TIENES QUE SELECCIONAR UNA CATEGORIA AL MENOS'`});
+        this.toaster.open(NoticyAlertComponent,{text:`danger-'UPPS! TIENES QUE SELECCIONAR AL MENOS UNA CATEGORIA '`});
         return;
       }
     }
