@@ -1,0 +1,131 @@
+<div class="card card-custom gutter-b">
+    <div class="card-header">
+        <div class="card-title">
+            <h3 class="card-label">
+                <i class="icon-2x text-dark-50 flaticon-imac mx-2"></i> AGREGAR NUEVO
+                PRODUCTO
+            </h3>
+        </div>
+        <div class="card-toolbar"></div>
+    </div>
+
+    <div class="card-body">
+        <ng-container *ngIf="isLoading$ | async">
+            <span class="spinner spinner-primary ml-5"></span>
+        </ng-container>
+
+        <div class="form-group row">
+            <div class="col-6">
+                <label>Titulo del producto: <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" placeholder="" [(ngModel)]="title" name="title" />
+                <span class="form-text text-muted">Ingresa el nombre del producto.</span>
+            </div>
+
+            <div class="col-3">
+                <label>SKU del producto: <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" placeholder="" [(ngModel)]="sku" name="sku" />
+            </div>
+
+            <div class="col-3">
+                <label>Selec. Categoria: <span class="text-danger">*</span></label>
+                <select class="form-control" name="categorie" [(ngModel)]="categorie">
+                    <option value="">Ninguno</option>
+                    <ng-container *ngFor="let item of categories">
+                        <option [value]="item._id">{{ item.title }}</option>
+                    </ng-container>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-3">
+                <label>PRECIO ARG: <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" placeholder="" [(ngModel)]="price_pesos" name="price_pesos" />
+            </div>
+
+            <div class="col-3">
+                <label>PRECIO USD: <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" placeholder="" [(ngModel)]="price_usd" name="price_usd" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label class="form-label">Sube tu portada: *</label>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile"
+                        accept=".jpeg, .bmp, .jpg, .png, .gif, .webp" (change)="processFile($event)" />
+                    <label class="custom-file-label" for="customFile">Elige archivo</label>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div *ngIf="imagen_previzualizacion">
+                    <img [src]="imagen_previzualizacion" style="width: 150px" alt="" srcset="" />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-6">
+                <label class="form-label">RESUMEN DEL PRODUCTO: *</label>
+                <textarea class="form-control" name="resumen" [(ngModel)]="resumen" placeholder="" rows="4"></textarea>
+            </div>
+
+            <div class="col-6">
+                <label class="form-label">Descripción: *</label>
+                <editor apiKey="72h275rs40js0ify2w81k94jgt0tv6dmrgsgb2582jc73i7d" [(ngModel)]="description" [init]="{
+            height: 250,
+            language: 'es',
+            plugins: [
+              'advlist autolink lists link image charmap print preview anchor',
+              'searchreplace visualblocks code fullscreen',
+              'insertdatetime media table paste code help wordcount'
+            ],
+            toolbar:
+              'undo redo | formatselect | bold italic backcolor | \
+              alignleft aligncenter alignright alignjustify | \
+              bullist numlist outdent indent | removeformat | help'
+          }"></editor>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-6 d-flex align-items-center">
+                <label class="form-label">TAGS: <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" placeholder="" [(ngModel)]="tag" name="tag" />
+                <button class="btn btn-primary mx-2" (click)="addTag()">+</button>
+            </div>
+
+            <div class="col-6">
+                <div class="table-responsive">
+                    <table class="table table-head-custom table-vertical-center">
+                        <thead>
+                            <tr class="text-left">
+                                <th>PALABRA</th>
+                                <th>ACCIÓN</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of tags; let i = index">
+                                <td>{{ item }}</td>
+                                <td>
+                                    <button class="btn btn-danger" (click)="removeTag(i)">-</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Aquí movemos el botón REGISTRAR PRODUCTO fuera de la sección de tags -->
+        <div class="form-group row mt-5">
+            <div class="col-12">
+                <button class="btn btn-primary btn-block" (click)="save()">
+                    REGISTRAR PRODUCTO
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

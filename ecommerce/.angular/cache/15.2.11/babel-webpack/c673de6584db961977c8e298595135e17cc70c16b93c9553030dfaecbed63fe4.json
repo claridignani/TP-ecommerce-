@@ -1,0 +1,57 @@
+{
+  "ast": null,
+  "code": "import { URL_SERVICIOS } from 'src/app/config/config';\nimport { catchError, map } from 'rxjs/operators';\nimport { of } from 'rxjs';\nimport * as i0 from \"@angular/core\";\nimport * as i1 from \"@angular/common/http\";\nimport * as i2 from \"@angular/router\";\nexport class AuthService {\n  constructor(http, router) {\n    this.http = http;\n    this.router = router;\n    this.user = null;\n    this.token = null;\n    this.getLocalStorage();\n  }\n  getLocalStorage() {\n    var _a;\n    if (localStorage.getItem(\"token\")) {\n      this.token = localStorage.getItem(\"token\");\n      this.user = JSON.parse((_a = localStorage.getItem(\"user\")) !== null && _a !== void 0 ? _a : '');\n    } else {\n      this.token = null;\n      this.user = null;\n    }\n  }\n  login(email, password) {\n    let URL = URL_SERVICIOS + \"users/login\";\n    return this.http.post(URL, {\n      email,\n      password\n    }).pipe(map(resp => {\n      if (resp.USER_FRONTEND && resp.USER_FRONTEND.token) {\n        //ALMACENAR EL TOKEN EN EL LOCALSTORAGE\n        return this.localStorageSave(resp.USER_FRONTEND);\n      } else {\n        //DEVUELVE EL ESTADO\n        return resp;\n      }\n    }), catchError(erro => {\n      console.log(erro);\n      return of(erro);\n    }));\n  }\n  localStorageSave(USER_FRONTEND) {\n    localStorage.setItem(\"token\", USER_FRONTEND.token), localStorage.setItem(\"user\", JSON.stringify(USER_FRONTEND.user));\n    return true;\n  }\n  registro(data) {\n    let URL = URL_SERVICIOS + \"users/register\";\n    return this.http.post(URL, data);\n  }\n  logout() {\n    localStorage.removeItem(\"token\");\n    localStorage.removeItem(\"user\");\n    this.router.navigate([\"auth/login\"]);\n  }\n}\nAuthService.ɵfac = function AuthService_Factory(t) {\n  return new (t || AuthService)(i0.ɵɵinject(i1.HttpClient), i0.ɵɵinject(i2.Router));\n};\nAuthService.ɵprov = /*@__PURE__*/i0.ɵɵdefineInjectable({\n  token: AuthService,\n  factory: AuthService.ɵfac,\n  providedIn: 'root'\n});",
+  "map": {
+    "version": 3,
+    "mappings": "AAGA,SAASA,aAAa,QAAQ,uBAAuB;AACrD,SAASC,UAAU,EAAEC,GAAG,QAAQ,gBAAgB;AAChD,SAASC,EAAE,QAAQ,MAAM;;;;AAIzB,OAAM,MAAOC,WAAW;EAKtBC,YACUC,IAAgB,EAChBC,MAAc;IADd,SAAI,GAAJD,IAAI;IACJ,WAAM,GAANC,MAAM;IALhB,SAAI,GAAK,IAAI;IACb,UAAK,GAAK,IAAI;IAMZ,IAAI,CAACC,eAAe,EAAE;EACxB;EACAA,eAAe;;IACb,IAAGC,YAAY,CAACC,OAAO,CAAC,OAAO,CAAC,EAAC;MAC/B,IAAI,CAACC,KAAK,GAAGF,YAAY,CAACC,OAAO,CAAC,OAAO,CAAC;MAC1C,IAAI,CAACE,IAAI,GAAGC,IAAI,CAACC,KAAK,CAAC,kBAAY,CAACJ,OAAO,CAAC,MAAM,CAAC,mCAAI,EAAE,CAAC;KAC3D,MAAI;MACH,IAAI,CAACC,KAAK,GAAG,IAAI;MACjB,IAAI,CAACC,IAAI,GAAG,IAAI;;EAEpB;EACAG,KAAK,CAAEC,KAAY,EAACC,QAAe;IACjC,IAAIC,GAAG,GAAGlB,aAAa,GAAG,aAAa;IACvC,OAAO,IAAI,CAACM,IAAI,CAACa,IAAI,CAACD,GAAG,EAAC;MAACF,KAAK;MAAEC;IAAQ,CAAC,CAAC,CAACG,IAAI,CAC/ClB,GAAG,CAAEmB,IAAQ,IAAG;MACd,IAAIA,IAAI,CAACC,aAAa,IAAID,IAAI,CAACC,aAAa,CAACX,KAAK,EAAC;QACjD;QACA,OAAO,IAAI,CAACY,gBAAgB,CAAEF,IAAI,CAACC,aAAa,CAAC;OAClD,MAAI;QACH;QACA,OAAOD,IAAI;;IAEf,CAAC,CAAE,EACHpB,UAAU,CAAGuB,IAAQ,IAAI;MACvBC,OAAO,CAACC,GAAG,CAACF,IAAI,CAAC;MACjB,OAAOrB,EAAE,CAACqB,IAAI,CAAC;IACjB,CAAC,CAAC,CACH;EACH;EACAD,gBAAgB,CAAEI,YAAiB;IACnClB,YAAY,CAACmB,OAAO,CAAC,OAAO,EAAED,YAAY,CAAChB,KAAK,CAAC,EACjDF,YAAY,CAACmB,OAAO,CAAC,MAAM,EAAEf,IAAI,CAACgB,SAAS,CAACF,YAAY,CAACf,IAAI,CAAC,CAAC;IAC/D,OAAO,IAAI;EACb;EACAkB,QAAQ,CAACC,IAAQ;IACf,IAAIb,GAAG,GAAGlB,aAAa,GAAG,gBAAgB;IAC1C,OAAO,IAAI,CAACM,IAAI,CAACa,IAAI,CAACD,GAAG,EAACa,IAAI,CAAC;EACjC;EAEAC,MAAM;IACJvB,YAAY,CAACwB,UAAU,CAAC,OAAO,CAAC;IAChCxB,YAAY,CAACwB,UAAU,CAAC,MAAM,CAAC;IAC/B,IAAI,CAAC1B,MAAM,CAAC2B,QAAQ,CAAC,CAAC,YAAY,CAAC,CAAC;EACtC;;;mBApDa9B,WAAW;AAAA;;SAAXA,WAAW;EAAA+B,SAAX/B,WAAW;EAAAgC,YAFV;AAAM",
+    "names": [
+      "URL_SERVICIOS",
+      "catchError",
+      "map",
+      "of",
+      "AuthService",
+      "constructor",
+      "http",
+      "router",
+      "getLocalStorage",
+      "localStorage",
+      "getItem",
+      "token",
+      "user",
+      "JSON",
+      "parse",
+      "login",
+      "email",
+      "password",
+      "URL",
+      "post",
+      "pipe",
+      "resp",
+      "USER_FRONTEND",
+      "localStorageSave",
+      "erro",
+      "console",
+      "log",
+      "USER_FRONTEND",
+      "setItem",
+      "stringify",
+      "registro",
+      "data",
+      "logout",
+      "removeItem",
+      "navigate",
+      "factory",
+      "providedIn"
+    ],
+    "sourceRoot": "",
+    "sources": [
+      "C:\\Users\\Educa informatica\\Desktop\\DSW\\E-COMMERCE\\TP\\ecommerce\\src\\app\\modules\\auth-profile\\_services\\auth.service.ts"
+    ],
+    "sourcesContent": [
+      "import { Injectable } from '@angular/core';\nimport { HttpClient} from '@angular/common/http'; \nimport { Router } from '@angular/router';\nimport { URL_SERVICIOS } from 'src/app/config/config';\nimport { catchError, map } from 'rxjs/operators';\nimport { of } from 'rxjs';\n@Injectable({\n  providedIn: 'root'\n})\nexport class AuthService {\n\n  user:any=null;\n  token:any=null;\n\n  constructor(\n    private http: HttpClient,\n    private router: Router,\n  ) { \n    this.getLocalStorage();\n  }\n  getLocalStorage(){\n    if(localStorage.getItem(\"token\")){\n      this.token = localStorage.getItem(\"token\");\n      this.user = JSON.parse(localStorage.getItem(\"user\") ?? '');\n    }else{\n      this.token = null;\n      this.user = null;\n    }\n  }\n  login (email:string,password:string){\n    let URL = URL_SERVICIOS + \"users/login\"\n    return this.http.post(URL,{email, password}).pipe(\n      map((resp:any)=> {\n        if (resp.USER_FRONTEND && resp.USER_FRONTEND.token){\n          //ALMACENAR EL TOKEN EN EL LOCALSTORAGE\n          return this.localStorageSave (resp.USER_FRONTEND)\n        }else{\n          //DEVUELVE EL ESTADO\n          return resp;\n        }\n      } ),\n      catchError ((erro:any) =>{\n        console.log(erro);\n        return of(erro);\n      })\n    )\n  }\n  localStorageSave (USER_FRONTEND: any){\n  localStorage.setItem(\"token\", USER_FRONTEND.token),\n  localStorage.setItem(\"user\", JSON.stringify(USER_FRONTEND.user));\n  return true;\n}\nregistro(data:any){\n  let URL = URL_SERVICIOS + \"users/register\";\n  return this.http.post(URL,data);\n}\n\nlogout(){\n  localStorage.removeItem(\"token\");\n  localStorage.removeItem(\"user\");\n  this.router.navigate([\"auth/login\"])\n}\n}\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module",
+  "externalDependencies": []
+}
