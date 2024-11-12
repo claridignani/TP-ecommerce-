@@ -31,3 +31,6 @@ Esta plataforma de comercio electrónico se especializa en la venta de prendas d
 |CUU/Epic|CUU01. Hacer pedido<br>CUU02. Registrar reseña<br>CUU03. Envio de email despues del pago|
 ### Modelo
 https://drive.google.com/file/d/18BvBsBxO3i2DnvcOwY5IoGf8QkQi9NoI/view?usp=sharing 
+
+### Video
+https://drive.google.com/file/d/1p2bqSKHFfjc4yZoExdxi1uTub8IJKvOC/view?usp=sharing
