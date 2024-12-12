@@ -23,4 +23,4 @@ router.use('/cart', Cart);
 router.use('/address_client',AddressClient);
 router.use('/sale',Sale);
 router.use('/review',Review);
-export default router;
+export default router ;

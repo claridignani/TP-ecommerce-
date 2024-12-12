@@ -14,4 +14,4 @@ router.delete("/delete",auth.verifyAdmin,categoriecontroller.remove);
 
 router.get("/uploads/categorie/:img",categoriecontroller.obtener_imagen);
 
-export default router;
+export default router ;

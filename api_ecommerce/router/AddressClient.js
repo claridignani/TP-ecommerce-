@@ -10,4 +10,4 @@ router.put("/update",auth.verifyEcommerce,AddressClientController.update);
 router.get("/list",auth.verifyEcommerce,AddressClientController.list);
 router.delete("/delete/:id",auth.verifyEcommerce,AddressClientController.remove);
 
-export default router;
+export default router ;

@@ -14,4 +14,4 @@ router.delete("/delete",auth.verifyAdmin,sliderController.remove);
 
 router.get("/uploads/slider/:img",sliderController.obtener_imagen);
 
-export default router;
+export default router ;

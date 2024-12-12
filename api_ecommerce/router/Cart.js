@@ -10,4 +10,4 @@ router.put("/update",auth.verifyEcommerce,cartController.update);
 router.delete("/delete/:id",auth.verifyEcommerce,cartController.delete);
 router.post("/aplicar_cupon",auth.verifyEcommerce,cartController.applyCupon);
 
-export default router;
+export default router ;

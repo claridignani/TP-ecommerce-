@@ -11,4 +11,4 @@ router.get("/config",auth.verifyAdmin,cuponeController.config);
 router.get("/show",auth.verifyAdmin,cuponeController.show);
 router.delete("/delete",auth.verifyAdmin,cuponeController.delete);
 
-export default router;
+export default router ;

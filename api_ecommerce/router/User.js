@@ -13,4 +13,4 @@ router.post("/login",usercontroller.login);
 router.post("/login_admin",usercontroller.login_admin);
 router.delete("/delete",usercontroller.remove);
 
-export default router;
+export default router ;

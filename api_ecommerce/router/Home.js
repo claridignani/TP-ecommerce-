@@ -12,4 +12,4 @@ router.post("/filter_products",homeController.filter_products);
 
 router.post("/profile_client",auth.verifyEcommerce,homeController.profile_client);
 router.post("/update_client",auth.verifyEcommerce,homeController.update_client);
-export default router;
+export default router ;

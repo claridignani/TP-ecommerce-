@@ -11,4 +11,4 @@ router.get("/config",auth.verifyAdmin,discountController.config);
 router.get("/show",auth.verifyAdmin,discountController.show);
 router.delete("/delete",auth.verifyAdmin,discountController.delete);
 
-export default router;
+export default router ;
