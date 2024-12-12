@@ -1,4 +1,4 @@
-import mongoose,{Schema} from "mongoose";
+import mongoose,{Schema} from "mongoose" ;
 
 const SaleSchema = new Schema({
     user:{type: Schema.ObjectId,ref:'user',required:true},

@@ -1,4 +1,4 @@
-import mongoose,{Schema} from "mongoose";
+import mongoose,{Schema} from "mongoose" ;
 
 const ProductSchema = new Schema({
     title:{type:String,required:true,maxlength:250},

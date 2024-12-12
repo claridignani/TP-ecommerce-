@@ -1,4 +1,4 @@
-import mongoose,{Schema} from "mongoose";
+import mongoose,{Schema} from "mongoose" ;
 
 const SaleAddressSchema = new Schema({
     sale:{type:Schema.ObjectId,ref: 'sale',required:true},

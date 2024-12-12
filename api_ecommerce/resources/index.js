@@ -10,5 +10,5 @@ export default {
     Categorie,
     Product,
     Slider,
-    Cart,
+    Cart ,
 }

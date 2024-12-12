@@ -1,4 +1,4 @@
-import mongoose,{Schema} from "mongoose";
+import mongoose,{Schema} from "mongoose" ;
 
 const CuponeSchema = new Schema({
     code:{type:String,maxlength:50,required:true},

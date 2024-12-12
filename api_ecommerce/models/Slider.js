@@ -1,4 +1,4 @@
-import mongoose,{Schema} from "mongoose";
+import mongoose,{Schema} from "mongoose" ;
 
 const SliderSchema = new Schema({
     title:{type:String,maxlength : 250,required:true},

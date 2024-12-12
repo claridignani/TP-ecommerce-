@@ -16,7 +16,7 @@ export default {
             type_discount: cart.type_discount,
             discount: cart.discount,
             cantidad: cart.cantidad,
-            variedad: cart.variedad,
+            variedad: cart.variedad ,
             code_cupon: cart.code_cupon,
             code_discount: cart.code_discount,
             price_unitario: cart.price_unitario,

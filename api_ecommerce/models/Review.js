@@ -1,4 +1,4 @@
-import mongoose,{Schema} from "mongoose";
+import mongoose,{Schema} from "mongoose" ;
 
 const ReviewSchema = new Schema({
     product:{type:Schema.ObjectId,ref:'product',required:true},

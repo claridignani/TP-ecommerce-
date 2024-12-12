@@ -6,7 +6,7 @@ export default {
             link: slider.link,
             imagen: slider.imagen,
             imagen_home: process.env.URL_BACKEND+'/api/sliders/uploads/slider/'+slider.imagen,
-            state: slider.state,
+            state: slider.state ,
         }
     }
 }

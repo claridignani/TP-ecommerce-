@@ -1,4 +1,4 @@
-import mongoose,{Schema} from "mongoose";
+import mongoose,{Schema} from "mongoose" ;
 
 const VariedadSchema = new Schema({
     product:{type:Schema.ObjectId,ref:'product',required:true},

@@ -18,7 +18,7 @@ export default {
             }
         }else{
             res.status(403).send({
-                message: 'EL TOKEN NO ES VALIDO'
+                message: 'EL TOKEN NO ES VALIDO '
             });
         }
     },
@@ -39,7 +39,7 @@ export default {
             }
         }else{
             res.status(403).send({
-                message: 'EL TOKEN NO ES VALIDO'
+                message: 'EL TOKEN NO ES VALIDO '
             });
         }
     }

@@ -12,7 +12,7 @@ let GALERIAS = [];
         }
         return {
             _id: product._id,
-            title: product.title,
+            title: product.title ,
             sku: product.sku,
             slug: product.slug,
             imagen: process.env.URL_BACKEND+'/api/products/uploads/product/'+product.portada,//*

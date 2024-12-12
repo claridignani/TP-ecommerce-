@@ -1,4 +1,4 @@
-import mongoose,{Schema} from "mongoose";
+import mongoose,{Schema} from "mongoose" ;
 
 const UserSchema = new Schema({
     rol:{type: String,maxlength:30,required:true},
