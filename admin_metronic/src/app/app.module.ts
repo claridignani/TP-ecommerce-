@@ -26,7 +26,7 @@ function appInitializer(authService: AuthService) {
     // return new Promise((resolve) => {
     //   authService.getUserByToken().subscribe().add(resolve);
     // });
-  };
+  } ;
 }
 
 

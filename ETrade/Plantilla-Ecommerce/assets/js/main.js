@@ -5,14 +5,14 @@
         i: function(e) {
             axilInit.s();
             axilInit.methods();
-        },
+         } ,
 
         s: function(e) {
             this._window = $(window),
                 this._document = $(document),
                 this._body = $('body'),
                 this._html = $('html')
-        },
+         } ,
 
         methods: function(e) {
             axilInit.w();
@@ -46,11 +46,11 @@
             axilInit.scrollSmoth();
            
            
-        },
+         } ,
 
         w: function(e) {
             this._window.on('load', axilInit.l).on('scroll', axilInit.res)
-        },
+         } ,
 
         contactForm: function() {
             $('.axil-contact-form').on('submit', function(e) {
@@ -71,7 +71,7 @@
                         if (data.code == false) {
                             _self.closest('div').find('[name="' + data.field + '"]');
                             _self.find('.axil-btn').after('<div class="error-msg"><p>*' + data.err + '</p></div>');
-                        } else {
+                         }  else {
                             $('.error-msg').hide();
                             $('.form-group').removeClass('focused');
                             _self.find('.axil-btn').after('<div class="success-msg"><p>' + data.success + '</p></div>');
@@ -79,12 +79,12 @@
 
                             setTimeout(function() {
                                 $('.success-msg').fadeOut('slow');
-                            }, 5000);
-                        }
-                    }
-                });
-            });
-        },
+                             } , 5000);
+                         } 
+                     } 
+                 } );
+             } );
+         } ,
 
         counterUpActivation: function () {
 			var _counter = $('.count');
@@ -93,35 +93,35 @@
 					delay: 10,
 					time: 1000,
 					triggerOnce: true
-				});
-			}
-        },
+				 } );
+			 } 
+         } ,
 
         scrollSmoth: function (e) {
             $(document).on('click', '.smoth-animation', function (event) {
                 event.preventDefault();
                 $('html, body').animate({
                     scrollTop: $($.attr(this, 'href')).offset().top
-                }, 200);
-            });
-        },
+                 } , 200);
+             } );
+         } ,
 
         axilBackToTop: function() {
             var btn = $('#backto-top');
             $(window).scroll(function() {
                 if ($(window).scrollTop() > 300) {
                     btn.addClass('show');
-                } else {
+                 }  else {
                     btn.removeClass('show');
-                }
-            });
+                 } 
+             } );
             btn.on('click', function(e) {
                 e.preventDefault();
                 $('html, body').animate({
                     scrollTop: 0
-                }, '300');
-            });
-        },
+                 } , '300');
+             } );
+         } ,
 
         shopFilterWidget: function() {
             $('.toggle-list > .title').on('click', function(e) {
@@ -130,7 +130,7 @@
                 var target2 = $(this).parent();
                 $(target).slideToggle();
                 $(target2).toggleClass('active');
-            });
+             } );
 
             $('.toggle-btn').on('click', function(e) {
 
@@ -138,8 +138,8 @@
                 var target2 = $(this).parent();
                 $(target).slideToggle();
                 $(target2).toggleClass('active');
-            });
-        },
+             } );
+         } ,
 
         mobileMenuActivation: function(e) {
             
@@ -151,34 +151,34 @@
                 if (targetParent.hasClass('open')) {
                     $(target).slideToggle(400);
                     $(this).parent('.menu-item-has-children').toggleClass('open');
-                }
+                 } 
 
-            });
+             } );
 
             $('.nav-link.has-megamenu').on('click', function(e) {
 
                 var $this = $(this),
                 targetElm = $this.siblings('.megamenu-mobile-toggle');
                 targetElm.slideToggle(500);
-            });
+             } );
 
             // Mobile Sidemenu Class Add
             function resizeClassAdd() {
                 if (window.matchMedia('(max-width: 1199px)').matches) {
                     $('.department-title').addClass('department-side-menu');
                     $('.department-megamenu').addClass('megamenu-mobile-toggle');
-                } else {
+                 }  else {
                     $('.department-title').removeClass('department-side-menuu');
                     $('.department-megamenu').removeClass('megamenu-mobile-toggle').removeAttr('style');
-                }
-            }
+                 } 
+             } 
 
             $(window).resize(function() {
                 resizeClassAdd();
-            });
+             } );
 
             resizeClassAdd();
-        },
+         } ,
 
         menuLinkActive: function () {
             var currentPage = location.pathname.split("/"),
@@ -188,16 +188,16 @@
                 if($this.attr('href') === current){
                     $this.addClass('active');
                     $this.parents('.menu-item-has-children').addClass('menu-item-open')
-                }
-            });
-        },
+                 } 
+             } );
+         } ,
 
         headerIconToggle: function() {
 
             $('.my-account > a').on('click', function(e) {
                 $(this).toggleClass('open').siblings().toggleClass('open');
-            })
-        },
+             } )
+         } ,
 
         priceRangeSlider: function(e) {
             $('#slider-range').slider({
@@ -207,12 +207,12 @@
                 values: [0, 3000],
                 slide: function(event, ui) {
                     $('#amount').val('$' + ui.values[0] + '  $' + ui.values[1]);
-                }
-            });
+                 } 
+             } );
             $('#amount').val('$' + $('#slider-range').slider('values', 0) +
                 '  $' + $('#slider-range').slider('values', 1));
 
-        },
+         } ,
 
         quantityRanger: function() {
             $('.pro-qty').prepend('<span class="dec qtybtn">-</span>');
@@ -222,17 +222,17 @@
                 var oldValue = $button.parent().find('input').val();
                 if ($button.hasClass('inc')) {
                     var newVal = parseFloat(oldValue) + 1;
-                } else {
+                 }  else {
                     // Don't allow decrementing below zero
                     if (oldValue > 0) {
                         var newVal = parseFloat(oldValue) - 1;
-                    } else {
+                     }  else {
                         newVal = 0;
-                    }
-                }
+                     } 
+                 } 
                 $button.parent().find('input').val(newVal);
-            });
-        },
+             } );
+         } ,
 
         axilSlickActivation: function(e) {
             $('.categrie-product-activation').slick({
@@ -251,39 +251,39 @@
                         settings: {
                             slidesToShow: 6,
                             slidesToScroll: 6
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 991,
                         settings: {
                             slidesToShow: 4,
                             slidesToScroll: 4
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 767,
                         settings: {
                             slidesToShow: 3,
                             slidesToScroll: 3
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 479,
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 2
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 400,
                         settings: {
                             slidesToShow: 1,
                             slidesToScroll: 1
-                        }
-                    },
+                         } 
+                     } ,
 
                 ]
-            });
+             } );
 
             $('.categrie-product-activation-3').slick({
                 infinite: true,
@@ -301,39 +301,39 @@
                         settings: {
                             slidesToShow: 5,
                             slidesToScroll: 5
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 991,
                         settings: {
                             slidesToShow: 4,
                             slidesToScroll: 4
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 767,
                         settings: {
                             slidesToShow: 3,
                             slidesToScroll: 3
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 479,
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 2
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 400,
                         settings: {
                             slidesToShow: 1,
                             slidesToScroll: 1
-                        }
-                    },
+                         } 
+                     } ,
 
                 ]
-            });
+             } );
 
             $('.categrie-product-activation-2').slick({
                 infinite: true,
@@ -351,38 +351,38 @@
                         settings: {
                             slidesToShow: 6,
                             slidesToScroll: 6
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 1199,
                         settings: {
                             slidesToShow: 5,
                             slidesToScroll: 5
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 991,
                         settings: {
                             slidesToShow: 3,
                             slidesToScroll: 3
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 767,
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 2
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 479,
                         settings: {
                             slidesToShow: 1,
                             slidesToScroll: 1
-                        }
-                    }
+                         } 
+                     } 
                 ]
-            });
+             } );
 
             $('.explore-product-activation').slick({
                 infinite: true,
@@ -393,7 +393,7 @@
                 prevArrow: '<button class="slide-arrow prev-arrow"><i class="fal fa-long-arrow-left"></i></button>',
                 nextArrow: '<button class="slide-arrow next-arrow"><i class="fal fa-long-arrow-right"></i></button>',
                 
-            });
+             } );
 
             $('.new-arrivals-product-activation').slick({
                 infinite: true,
@@ -408,24 +408,24 @@
                         settings: {
                             slidesToShow: 3,
                             slidesToScroll: 3
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 991,
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 2
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 576,
                         settings: {
                             slidesToShow: 1,
                             slidesToScroll: 1
-                        }
-                    }
+                         } 
+                     } 
                 ]
-            });
+             } );
 
             $('.new-arrivals-product-activation-2').slick({
                 infinite: true,
@@ -440,25 +440,25 @@
                         settings: {
                             slidesToShow: 3,
                             slidesToScroll: 3
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 991,
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 2
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 576,
                         settings: {
                             variableWidth: true,
                             slidesToShow: 1,
                             slidesToScroll: 1
-                        }
-                    }
+                         } 
+                     } 
                 ]
-            });
+             } );
 
             $('.recent-product-activation').slick({
                 infinite: true,
@@ -473,24 +473,24 @@
                         settings: {
                             slidesToShow: 3,
                             slidesToScroll: 3
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 991,
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 2
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 479,
                         settings: {
                             slidesToShow: 1,
                             slidesToScroll: 1
-                        }
-                    }
+                         } 
+                     } 
                 ]
-            });
+             } );
 
             $('.header-campaign-activation').slick({
                 infinite: true,
@@ -501,7 +501,7 @@
                 autoplay: true,
                 prevArrow: '<button class="slide-arrow prev-arrow"><i class="fal fa-long-arrow-left"></i></button>',
                 nextArrow: '<button class="slide-arrow next-arrow"><i class="fal fa-long-arrow-right"></i></button>'
-            });
+             } );
 
             $('.testimonial-slick-activation-two').slick({
                 infinite: true,
@@ -511,7 +511,7 @@
                 dots: true,
                 prevArrow: '<button class="slide-arrow prev-arrow"><i class="fal fa-long-arrow-left"></i></button>',
                 nextArrow: '<button class="slide-arrow next-arrow"><i class="fal fa-long-arrow-right"></i></button>'
-            });
+             } );
 
             $('.testimonial-slick-activation').slick({
                 infinite: true,
@@ -527,10 +527,10 @@
                         breakpoint: 991,
                         settings: {
                             slidesToShow: 1,
-                        }
-                    }
+                         } 
+                     } 
                 ]
-            });
+             } );
 
             $('.product-small-thumb').slick({
                 infinite: false,
@@ -546,18 +546,18 @@
                         breakpoint: 992,
                         settings: {
                             vertical: false,
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 768,
                         settings: {
                             vertical: false,
                             slidesToShow: 4,
-                        }
-                    }
+                         } 
+                     } 
                 ]
 
-            });
+             } );
 
             $('.product-large-thumbnail').slick({
                 infinite: false,
@@ -568,7 +568,7 @@
                 speed: 800,
                 draggable: false,
                 asNavFor: '.product-small-thumb'
-            });
+             } );
 
             $('.product-small-thumb-2').slick({
                 infinite: true,
@@ -583,17 +583,17 @@
                         breakpoint: 768,
                         settings: {
                             slidesToShow: 5,
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 479,
                         settings: {
                             slidesToShow: 4,
-                        }
-                    }
+                         } 
+                     } 
                 ]
 
-            });
+             } );
 
             $('.product-large-thumbnail-2').slick({
                 infinite: true,
@@ -606,7 +606,7 @@
                 asNavFor: '.product-small-thumb-2',
                 prevArrow: '<button class="slide-arrow prev-arrow"><i class="fal fa-long-arrow-left"></i></button>',
                 nextArrow: '<button class="slide-arrow next-arrow"><i class="fal fa-long-arrow-right"></i></button>'
-            });
+             } );
 
             $('.product-small-thumb-3').slick({
                 infinite: false,
@@ -624,11 +624,11 @@
                         breakpoint: 992,
                         settings: {
                             vertical: false,
-                        }
-                    }
+                         } 
+                     } 
                 ]
 
-            });
+             } );
 
             $('.product-large-thumbnail-3').slick({
                 infinite: false,
@@ -640,7 +640,7 @@
                 draggable: false,
                 swipe: false,
                 asNavFor: '.product-small-thumb-3'
-            });
+             } );
 
 
             $('.related-blog-activation').slick({
@@ -656,17 +656,17 @@
                         breakpoint: 1199,
                         settings: {
                             slidesToShow: 2,
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 768,
                         settings: {
                             slidesToShow: 1,
-                        }
-                    }
+                         } 
+                     } 
 
                 ]
-            });
+             } );
 
             $('.blog-gallery-activation').slick({
                 infinite: true,
@@ -677,11 +677,11 @@
                 speed: 500,
                 prevArrow: '<button class="slide-arrow prev-arrow"><i class="fal fa-long-arrow-left"></i></button>',
                 nextArrow: '<button class="slide-arrow next-arrow"><i class="fal fa-long-arrow-right"></i></button>',
-            });
+             } );
 
             $('#quick-view-modal').on('shown.bs.modal', function (event) {
                 $('.slick-slider').slick('setPosition');
-            });
+             } );
 
             $('.slider-thumb-activation-one').slick({
                 infinite: true,
@@ -699,11 +699,11 @@
                         breakpoint: 991,
                         settings: {
                             slidesToShow: 1,
-                        }
-                    }
+                         } 
+                     } 
                 ]
 
-            });
+             } );
 
             $('.slider-thumb-activation-two').slick({
                 infinite: true,
@@ -718,10 +718,10 @@
                         breakpoint: 575,
                         settings: {
                             slidesToShow: 1,
-                        }
-                    }
+                         } 
+                     } 
                 ]
-            });
+             } );
 
             $('.slider-thumb-activation-three').slick({
                 infinite: true,
@@ -736,11 +736,11 @@
                         breakpoint: 1199,
                         settings: {
                             slidesToShow: 1,
-                        }
-                    }
+                         } 
+                     } 
                 ]
 
-            });
+             } );
 
             $('.slider-content-activation-one').slick({
                 infinite: true,
@@ -753,7 +753,7 @@
                 fade: true,
                 autoplay: false,
                 asNavFor: '.slider-thumb-activation-one',
-            });
+             } );
 
             $('.slider-activation-one').slick({
                 infinite: true,
@@ -766,7 +766,7 @@
                 focusOnSelect: false,
                 speed: 400
 
-            });
+             } );
 
             $('.slider-activation-two').slick({
                 infinite: true,
@@ -779,7 +779,7 @@
                 adaptiveHeight: true,
                 cssEase: 'linear',
                 speed: 400
-            });
+             } );
 
             $('.team-slide-activation').slick({
                 infinite: true,
@@ -794,25 +794,25 @@
                         settings: {
                             slidesToShow: 3,
                             slidesToScroll: 3
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 991,
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 2
-                        }
-                    },
+                         } 
+                     } ,
                     {
                         breakpoint: 576,
                         settings: {
                             slidesToShow: 1,
                             slidesToScroll: 1
-                        }
-                    }
+                         } 
+                     } 
                 ]
-            });
-        },
+             } );
+         } ,
 
         countdownInit: function(countdownSelector, countdownTime) {
             var eventCounter = $(countdownSelector);
@@ -823,9 +823,9 @@
                             "<div class='countdown-section'><div><div class='countdown-number'>%-D</div> <div class='countdown-unit'>Day</div> </div></div><div class='countdown-section'><div><div class='countdown-number'>%H</div> <div class='countdown-unit'>Hrs</div> </div></div><div class='countdown-section'><div><div class='countdown-number'>%M</div> <div class='countdown-unit'>Min</div> </div></div><div class='countdown-section'><div><div class='countdown-number'>%S</div> <div class='countdown-unit'>Sec</div> </div></div>"
                         )
                     );
-                });
-            }
-        },
+                 } );
+             } 
+         } ,
 
         campaignCountdown: function(countdownSelector, countdownTime) {
             var eventCounter = $(countdownSelector);
@@ -836,9 +836,9 @@
                             "<div class='countdown-section'><div><div class='countdown-number'>%-D</div> <div class='countdown-unit'>D</div> </div></div><div class='countdown-section'><div><div class='countdown-number'>%H</div> <div class='countdown-unit'>H</div> </div></div><div class='countdown-section'><div><div class='countdown-number'>%M</div> <div class='countdown-unit'>M</div> </div></div><div class='countdown-section'><div><div class='countdown-number'>%S</div> <div class='countdown-unit'>S</div> </div></div>"
                         )
                     );
-                });
-            }
-        },
+                 } );
+             } 
+         } ,
 
         sideOffcanvasToggle: function(selectbtn, openElement) {
 
@@ -857,24 +857,24 @@
                     wrapp.css({
                         'overflow': 'hidden'
 
-                    });
+                     } );
 
-                } else {
+                 }  else {
                     removeSideMenu();
-                }
+                 } 
 
                 function removeSideMenu() {
                     wrapp.removeAttr('style');
                     wrapp.removeClass('open').find('.closeMask').remove();
                     cartDropdown.removeClass('open');
-                }
+                 } 
 
                 $('.sidebar-close, .closeMask').on('click', function() {
                     removeSideMenu();
-                });
+                 } );
 
-            });
-        },
+             } );
+         } ,
 
         stickyHeaderMenu: function() {
 
@@ -890,20 +890,20 @@
                     if ($(window).scrollTop() > targrtScroll) {
                         menu.addClass('axil-sticky');
                         stickyPlaceHolder.height(menuH);
-                    } else {
+                     }  else {
                         menu.removeClass('axil-sticky');
                         stickyPlaceHolder.height(0);
-                    }
-                }
-            });
-        },
+                     } 
+                 } 
+             } );
+         } ,
 
         salActivation: function() {
             sal({
                 threshold: 0.3,
                 once: true
-            });
-        },
+             } );
+         } ,
 
         magnificPopupActivation: function() {
 
@@ -916,8 +916,8 @@
                     removalDelay: 160,
                     preloader: false,
                     fixedContentPos: false
-                });
-            }
+                 } );
+             } 
 
             if ($('.zoom-gallery').length) {
                 $('.zoom-gallery').each(function() {
@@ -926,35 +926,35 @@
                         type: 'image',
                         gallery: {
                             enabled: true
-                        }
-                    });
-                });
-            }
-        },
+                         } 
+                     } );
+                 } );
+             } 
+         } ,
 
         colorVariantActive: function() {
             $('.color-variant > li').on('click', function(e) {
                 $(this).addClass('active').siblings().removeClass('active');
-            })
-        },
+             } )
+         } ,
 
         headerCampaignRemove: function() {
            $('.remove-campaign').on('click', function() {
                 var targetElem = $('.header-top-campaign');
                 targetElem.slideUp(function() {
                     $(this).remove();
-                });
-           });
-        },
+                 } );
+            } );
+         } ,
 
         offerPopupActivation: function() {
             if ($('body').hasClass('newsletter-popup-modal')) {
                 setTimeout(function(){ 
                     $('body').addClass('open');
                     $('#offer-popup-modal').addClass('open');
-                }, 1000);
-            }
-        },
+                 } , 1000);
+             } 
+         } ,
 
         axilMasonary: function () {
             $('.axil-isotope-wrapper').imagesLoaded(function () {
@@ -963,8 +963,8 @@
                     var filterValue = $(this).attr('data-filter');
                     $grid.isotope({
                         filter: filterValue
-                    });
-                });
+                     } );
+                 } );
                 
                 // init Isotope
                 var $grid = $('.isotope-list').isotope({
@@ -975,17 +975,17 @@
                     masonry: {
                         // use outer width of grid-sizer for columnWidth
                         columnWidth: 1,
-                    }
-                });
-            });
+                     } 
+                 } );
+             } );
         
             $('.isotope-button button').on('click', function (event) {
                 $(this).siblings('.is-checked').removeClass('is-checked');
                 $(this).addClass('is-checked');
                 event.preventDefault();
-            });
-        },
-    }
+             } );
+         } ,
+     } 
     axilInit.i();
 
-})(window, document, jQuery);
+ } )(window, document, jQuery);

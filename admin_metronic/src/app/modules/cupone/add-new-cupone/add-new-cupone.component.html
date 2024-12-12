@@ -101,7 +101,7 @@
                     >
                         <option value="">Ninguno</option>
                         <ng-container *ngFor="let item of products">
-                            <option [value]="item._id">{{ item.title }}</option>
+                            <option [value]="item._id">{{ item.title  }  } </option>
                         </ng-container>
                         
                     </select>
@@ -117,7 +117,7 @@
                     >
                         <option value="">Ninguno</option>
                         <ng-container *ngFor="let item of categories">
-                            <option [value]="item._id">{{ item.title }}</option>
+                            <option [value]="item._id">{{ item.title  }  } </option>
                         </ng-container>
                         
                     </select>
@@ -138,7 +138,7 @@
                         </thead>
                         <tbody *ngIf="type_segment == 1">
                             <tr *ngFor="let product of products_selected">
-                                <td>{{ product.title }}</td>
+                                <td>{{ product.title  }  } </td>
                                 <td>
                                     <button class="btn btn-danger btn-sm" (click)="removeProduct(product)">X</button>
                                 </td>
@@ -146,7 +146,7 @@
                         </tbody>
                         <tbody *ngIf="type_segment == 2">
                             <tr *ngFor="let categorie of categories_selected">
-                                <td>{{ categorie.title }}</td>
+                                <td>{{ categorie.title  }  } </td>
                                 <td>
                                     <button class="btn btn-danger btn-sm" (click)="removeCategorie(categorie)">X</button>
                                 </td>
@@ -159,7 +159,7 @@
 
         <div class="form-group row">
             <div class="col-12">
-                <button class="btn btn-primary" (click)="save()"> AGREGAR CUPON</button>
+                <button class="btn btn-primary" (click)="save()">AGREGAR CUPON</button>
             </div>
         </div>
     </div>

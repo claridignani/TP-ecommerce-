@@ -7,7 +7,7 @@ isLoading$: Observable<boolean>;
   ) {
     this.isLoadingSubject = new BehaviorSubject<boolean>(false);
     this.isLoading$ = this.isLoadingSubject.asObservable();
-  }
+   } 
 
 
 <div class="table-responsive">
@@ -68,9 +68,9 @@ isLoading$: Observable<boolean>;
                   </a>
 
 
-,{text:`danger-'Upps! Necesita ingresar las contraseñas iguales.'`}
+,{text:`danger-'Upps! Necesita ingresar las contraseñas iguales.'` } 
 
-ToastNotificationsModule.forRoot({duration: 5000, position: 'top-right'}),
+ToastNotificationsModule.forRoot({duration: 5000, position: 'top-right' } ),
 
 <select
                 class="form-control"
@@ -110,12 +110,12 @@ const obtener_imagen = async function(req,res){
         if(!err){
             let path_img = './uploads/productos/'+img;
             res.status(200).sendFile(path.resolve(path_img));
-        }else{
+         } else{
             let path_img = './uploads/default.jpg';
             res.status(200).sendFile(path.resolve(path_img));
-        }
-    })
-}
+         } 
+     } )
+ } 
 
 <label class="form-label">RESUMEN DEL PRODUCTO: *</label>
 <textarea class="form-control" name="descriptions"
@@ -136,7 +136,7 @@ const obtener_imagen = async function(req,res){
                     'undo redo | formatselect | bold italic backcolor | \
                     alignleft aligncenter alignright alignjustify | \
                     bullist numlist outdent indent | removeformat | help'
-                }"
+                 } "
                 ></editor>
 
 
@@ -166,7 +166,7 @@ const obtener_imagen = async function(req,res){
 components.ts
 declare var paypal:any;
 
-@ViewChild('paypal',{static: true}) paypalElement?: ElementRef;
+@ViewChild('paypal',{static: true } ) paypalElement?: ElementRef;
 
 <div #paypal ></div>
 
@@ -177,7 +177,7 @@ paypal.Buttons({
           color: "gold",
           shape: "rect",
           layout: "vertical"
-        },
+         } ,
 
         // set up the transaction
         createOrder: (data:any, actions:any) => {
@@ -190,13 +190,13 @@ paypal.Buttons({
                   amount: {
                       description: "COMPRAR POR EL ECOMMERCE",
                       value: 50
-                  }
-                }
+                   } 
+                 } 
               ]
-            };
+             } ;
 
             return actions.order.create(createOrderPayload);
-        },
+         } ,
 
         // finalize the transaction
         onApprove: async (data:any, actions:any) => {
@@ -206,13 +206,13 @@ paypal.Buttons({
 		// Order.purchase_units[0].payments.captures[0].id
 
             return actions.order.capture().then(captureOrderHandler);
-        },
+         } ,
 
         // handle unrecoverable errors
         onError: (err:any) => {
             console.error('An error prevented the buyer from checking out with PayPal');
-        }
-    }).render(this.paypalElement?.nativeElement);
+         } 
+     } ).render(this.paypalElement?.nativeElement);
 
 <!-- SCRIPT PAYPAL -->
   <script src="https://www.paypal.com/sdk/js?client-id=&vault=true"></script>
@@ -224,16 +224,16 @@ npm i ejs nodemailer nodemailer-smtp-transport
 bilcfvchcrscbseu
 
 var readHTMLFile = function(path, callback) {
-            fs.readFile(path, {encoding: 'utf-8'}, function (err, html) {
+            fs.readFile(path, {encoding: 'utf-8' } , function (err, html) {
                 if (err) {
                     throw err;
                     callback(err);
-                }
+                 } 
                 else {
                     callback(null, html);
-                }
-            });
-};
+                 } 
+             } );
+ } ;
 
 var transporter = nodemailer.createTransport(smtpTransport({
             service: 'gmail',
@@ -241,41 +241,41 @@ var transporter = nodemailer.createTransport(smtpTransport({
             auth: {
             user: 'tucorreo@gmail.com',
             pass: 'xxxxxx'
-            }
-        }));
+             } 
+         } ));
 
 
 
 readHTMLFile(process.cwd() + '/mails/email_sale.html', (err, html)=>{
                                 
-            let rest_html = ejs.render(html, {});
+            let rest_html = ejs.render(html, { } );
     
             var template = handlebars.compile(rest_html);
-            var htmlToSend = template({op:true});
+            var htmlToSend = template({op:true } );
     
             var mailOptions = {
                 from: 'tucorreo@gmail.com',
                 to: email_cliente,
                 subject: 'Finaliza tu compra ' + orden._id,
                 html: htmlToSend
-            };
+             } ;
           
             transporter.sendMail(mailOptions, function(error, info){
                 if (!error) {
                     console.log('Email sent: ' + info.response);
-                }
-            });
+                 } 
+             } );
         
-        });
+         } );
 
 
 <% for(var i=0; i < array.length; i++) { %>
 
-<% } %>
+<%  }  %>
 
 <% if() { %>
 
-<% } %>
+<%  }  %>
 
 <%=  %>
 
@@ -296,11 +296,11 @@ ngAfterViewInit(): void {
     this.source.pipe(debounceTime(500)).subscribe((c:any) => {
       let data = {
         search_product: this.search_product,
-      }
+       } 
       if(this.search_product.length > 1){
         this.examopleService.nameFunction(data).subscribe((resp:any) => {
           this.sugerencias = resp.products;
-        })
-      }
-    })
-  }
+         } )
+       } 
+     } )
+   } 

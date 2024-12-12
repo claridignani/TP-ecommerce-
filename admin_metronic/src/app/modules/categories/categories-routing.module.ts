@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { CategoriesComponent } from './categories.component';
-import { LitsCategoriesComponent } from './lits-categories/lits-categories.component';
+import { NgModule   }   from '@angular/core';
+import { Routes, RouterModule   }   from '@angular/router';
+import { CategoriesComponent   }   from './categories.component';
+import { LitsCategoriesComponent   }   from './lits-categories/lits-categories.component';
 
 //localhost:4200/categories/list
 const routes: Routes = [
@@ -12,13 +12,13 @@ const routes: Routes = [
       {
         path: 'list',
         component: LitsCategoriesComponent,
-      }
+        }  
     ]
-  }
+    }  
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
-})
-export class CategoriesRoutingModule { }
+   }  )
+export class CategoriesRoutingModule {   }  

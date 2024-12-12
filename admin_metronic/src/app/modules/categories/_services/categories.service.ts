@@ -1,13 +1,13 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { finalize } from 'rxjs/operators';
-import { URL_SERVICIOS } from 'src/app/config/config';
-import { AuthService } from '../../auth';
+import { HttpClient, HttpHeaders   }   from '@angular/common/http';
+import { Injectable   }   from '@angular/core';
+import { Observable, BehaviorSubject   }   from 'rxjs';
+import { finalize   }   from 'rxjs/operators';
+import { URL_SERVICIOS   }   from 'src/app/config/config';
+import { AuthService   }   from '../../auth';
 
 @Injectable({
   providedIn: 'root'
-})
+  }  )
 export class CategoriesService {
 
   isLoading$: Observable<boolean>;
@@ -19,41 +19,41 @@ export class CategoriesService {
   ) {
     this.isLoadingSubject = new BehaviorSubject<boolean>(false);
     this.isLoading$ = this.isLoadingSubject.asObservable();
-  }
+    }  
   
   allCategories(search=''){
     this.isLoadingSubject.next(true);
-    let headers = new HttpHeaders({'token': this.authservice.token});
+    let headers = new HttpHeaders({'token': this.authservice.token  }  );
     let URL = URL_SERVICIOS+"/categories/list?search="+search;
-    return this.http.get(URL,{headers: headers}).pipe(
+    return this.http.get(URL,{headers: headers  }  ).pipe(
       finalize(() => this.isLoadingSubject.next(false))
     );
-  }
+    }  
 
   createCategorie(data){
     this.isLoadingSubject.next(true);
-    let headers = new HttpHeaders({'token': this.authservice.token});
+    let headers = new HttpHeaders({'token': this.authservice.token  }  );
     let URL = URL_SERVICIOS+"/categories/register";
-    return this.http.post(URL,data,{headers: headers}).pipe(
+    return this.http.post(URL,data,{headers: headers  }  ).pipe(
       finalize(() => this.isLoadingSubject.next(false))
     );
-  }
+    }  
 
   updateCategorie(data){
     this.isLoadingSubject.next(true);
-    let headers = new HttpHeaders({'token': this.authservice.token});
+    let headers = new HttpHeaders({'token': this.authservice.token  }  );
     let URL = URL_SERVICIOS+"/categories/update";
-    return this.http.put(URL,data,{headers: headers}).pipe(
+    return this.http.put(URL,data,{headers: headers  }  ).pipe(
       finalize(() => this.isLoadingSubject.next(false))
     );
-  }
+    }  
 
   deleteCategorie(categorie_id){
     this.isLoadingSubject.next(true);
-    let headers = new HttpHeaders({'token': this.authservice.token});
+    let headers = new HttpHeaders({'token': this.authservice.token  }  );
     let URL = URL_SERVICIOS+"/categories/delete?_id="+categorie_id;
-    return this.http.delete(URL,{headers: headers}).pipe(
-      finalize(() => this.isLoadingSubject.next(false))
+    return this.http.delete(URL,{headers: headers  }  ).pipe(
+      finalize(() => this.isLoadingSubject.next(false ))
     );
-  }
-}
+    }  
+  }  

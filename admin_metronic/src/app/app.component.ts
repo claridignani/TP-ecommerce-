@@ -38,7 +38,7 @@ export class AppComponent implements OnInit, OnDestroy {
       chLang,
       esLang,
       jpLang,
-      deLang,
+      deLang ,
       frLang
     );
   }
