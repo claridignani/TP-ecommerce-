@@ -16,7 +16,7 @@ export default {
             console.log(error); // Imprime el error en la consola para depuración.
             // Responde con un mensaje de error si ocurre algún problema.
             res.status(500).send({
-                message: "OCURRIO UN ERROR", // Mensaje de error genérico.
+                message: "Ocurrio un Error", // Mensaje de error genérico.
             });
         }
     },
@@ -38,7 +38,7 @@ export default {
             console.log(error); // Imprime el error en la consola para depuración.
             // Responde con un mensaje de error si ocurre algún problema.
             res.status(500).send({
-                message: "OCURRIO UN ERROR", // Mensaje de error genérico.
+                message: "Ocurrio un Error", // Mensaje de error genérico.
             });
         }
     },

@@ -59,7 +59,7 @@ export default {
         } catch (error) {
             console.log(error); // Registra el error en la consola
             res.status(500).send({
-                message: "OCURRIO UN ERROR",
+                message: "Ocurrio un Error",
             });
         }
     },
@@ -123,7 +123,7 @@ export default {
 
         } catch (error) {
             res.status(500).send({
-                message: "OCURRIO UN ERROR",
+                message: "Ocurrio un Error",
             });
         }
     },
@@ -142,7 +142,7 @@ export default {
 
         } catch (error) {
             res.status(500).send({
-                message: "OCURRIO UN ERROR",
+                message: "Ocurrio un Error",
             });
         }
     },
@@ -161,7 +161,7 @@ export default {
 
         } catch (error) {
             res.status(500).send({
-                message: "OCURRIO UN ERROR",
+                message: "Ocurrio un Error",
             });
         }
     },
@@ -180,7 +180,7 @@ export default {
 
         } catch (error) {
             res.status(500).send({
-                message: "OCURRIO UN ERROR",
+                message: "Ocurrio un Error",
             });
         }
     },
@@ -199,7 +199,7 @@ export default {
 
         } catch (error) {
             res.status(500).send({
-                message: "OCURRIO UN ERROR",
+                message: "Ocurrio un Error",
             });
         }
     },

@@ -75,7 +75,7 @@ async function send_email(sale_id) {
         console.log(error); // Imprime el error en consola si ocurre un problema.
         // Respuesta comentada (no se envía actualmente).
         // res.status(500).send({
-        //     menssage:"OCURRIO UN ERROR",
+        //     menssage:"Ocurrio un Error",
         // });
     }
 }

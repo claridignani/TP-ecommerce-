@@ -29,7 +29,7 @@ export default {
         } catch (error) {
             // Manejo de errores en caso de que ocurra un problema
             res.status(500).send({
-                message: "OCURRIO UN ERROR",
+                message: "Ocurrio un Error",
             });
             console.log(error);
         }
@@ -111,7 +111,7 @@ export default {
         } catch (error) {
             // Manejo de errores en caso de que ocurra un problema
             res.status(500).send({
-                message: "OCURRIO UN ERROR",
+                message: "Ocurrio un Error",
             });
             console.log(error);
         }
@@ -165,7 +165,7 @@ export default {
         } catch (error) {
             // Manejo de errores en caso de que ocurra un problema
             res.status(500).send({
-                message: "OCURRIO UN ERROR",
+                message: "Ocurrio un Error",
             });
             console.log(error);
         }
@@ -184,7 +184,7 @@ export default {
         } catch (error) {
             // Manejo de errores en caso de que ocurra un problema
             res.status(500).send({
-                message: "OCURRIO UN ERROR",
+                message: "Ocurrio un Error",
             });
             console.log(error);
         }
@@ -281,7 +281,7 @@ export default {
         } catch (error) {
             // Manejo de errores en caso de que ocurra un problema
             res.status(500).send({
-                message: "OCURRIO UN ERROR",
+                message: "Ocurrio un Error",
             });
             console.log(error);
         }
